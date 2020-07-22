@@ -11,6 +11,7 @@ import SinglePost from './pages/single-post';
 import NewPost from './pages/new-post';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import ScrollToTop from './utils/ScrollToTop';
 
 const httpLink = new HttpLink({
   uri: 'http://localhost:4000/graphql/'
@@ -38,6 +39,7 @@ export default function App() {
     <ApolloProvider client={client}>
       <Provider store={store}>
         <BrowserRouter>
+          <ScrollToTop />
           <Header />
           <main className="l-index">
             <Switch>
