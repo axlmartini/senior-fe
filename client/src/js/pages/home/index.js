@@ -4,9 +4,9 @@ import News from './news/News';
 
 export default function Home() {
   return (
-    <div>
+    <React.Fragment>
       <Slider />
       <News />
-    </div>
+    </React.Fragment>
   )
 }

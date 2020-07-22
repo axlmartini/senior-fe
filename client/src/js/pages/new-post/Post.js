@@ -85,37 +85,39 @@ function Post() {
 
   if(errors && errors.length) return <h2>Network Error</h2>
   return (
-    <div>
+    <React.Fragment>
       <Breadcrumbs title="Create New Post" />
-      <div className="post-section l-container is-new-post">
-        <div className="flex flex-end button-group">
-          <button className="button-link button-save" onClick={handlePostFormSubmit}>Save Post</button>
-          <button className="button-link" onClick={handleEditCancel}>Cancel</button> 
-        </div>
-        <ul className="user-form-errors">
-        { formErrors.map(err => 
-            err.map(item => 
-              <li className="user-form-message user-form-error" key={item}>{item}</li>
-            )
-        ) }
+      <div className="post-section">
+        <div className="l-container post-container is-new-post">
+          <div className="flex flex-end button-group">
+            <button className="button-link button-save" onClick={handlePostFormSubmit}>Save Post</button>
+            <button className="button-link" onClick={handleEditCancel}>Cancel</button> 
+          </div>
+          <ul className="user-form-errors">
+          { formErrors.map(err => 
+              err.map(item => 
+                <li className="user-form-message user-form-error" key={item}>{item}</li>
+              )
+          ) }
 
-        { post && Object.keys(post).length > 0 && <li className="user-form-message user-form-success">Post added</li> }
-        </ul>
-        <time className="post-date" dateTime={formatDate}>{formatDate}</time>
-        <Form 
-          handleTitleChange={handleTitleChange}
-          handleContentChange={handleContentChange}
-          title={title}
-          content={content}
-          image={image}
-          onDrop={onDrop} 
-          handlePostFormSubmit={handlePostFormSubmit} />
-        <Confirm 
-          showConfirmModal={showConfirmModal}
-          handleModalClose={handleModalClose}
-          handlePostFormSubmit={handlePostFormSubmit} />
+          { post && Object.keys(post).length > 0 && <li className="user-form-message user-form-success">Post added</li> }
+          </ul>
+          <time className="post-date" dateTime={formatDate}>{formatDate}</time>
+          <Form 
+            handleTitleChange={handleTitleChange}
+            handleContentChange={handleContentChange}
+            title={title}
+            content={content}
+            image={image}
+            onDrop={onDrop} 
+            handlePostFormSubmit={handlePostFormSubmit} />
+          <Confirm 
+            showConfirmModal={showConfirmModal}
+            handleModalClose={handleModalClose}
+            handlePostFormSubmit={handlePostFormSubmit} />
+        </div>
       </div>
-    </div>
+    </React.Fragment>
   )
 }
 

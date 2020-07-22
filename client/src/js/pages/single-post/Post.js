@@ -118,75 +118,79 @@ function Post () {
   return (
     <div>
       <Breadcrumbs title={post && post.title} />
-      <div className="post-section l-container">
-        <div className="flex flex-end button-group">
-          { !isEdit ?
-            <button className="button-link" onClick={() => setIsEdit(!isEdit)}>Edit Post</button> :
-            <div>
-              <button className="button-link button-save" onClick={handlePostFormSubmit}>Save Post</button>
-              <button className="button-link" onClick={handleEditCancel}>Cancel</button> 
-            </div>
+      <div className="post-section">
+        <div className="l-container post-container">
+          <div className="flex flex-end button-group">
+            { !isEdit ?
+              <button className="button-link" onClick={() => setIsEdit(!isEdit)}>Edit Post</button> :
+              <div>
+                <button className="button-link button-save" onClick={handlePostFormSubmit}>Save Post</button>
+                <button className="button-link" onClick={handleEditCancel}>Cancel</button> 
+              </div>
+            }
+          </div>
+          <ul className="user-form-errors">
+          { formErrors.map(err => 
+              err.map(item => 
+                <li className="user-form-message user-form-error" key={item}>{item}</li>
+              )
+          ) }
+
+          { isUpdated === true && Object.keys(post).length > 0 && <li className="user-form-message user-form-success">Post updated</li> }
+          </ul>
+          <time className="post-date" dateTime={formatDate}>{formatDate}</time>
+          { isEdit ? (
+            <Fragment>
+              <Form 
+                handleTitleChange={handleTitleChange}
+                handleContentChange={handleContentChange}
+                title={title}
+                content={content}
+                image={image}
+                onDrop={onDrop} 
+                handlePostFormSubmit={handlePostFormSubmit} />
+              <Confirm 
+                showConfirmModal={showConfirmModal}
+                handleModalClose={handleModalClose}
+                handlePostFormSubmit={handlePostFormSubmit} />
+            </Fragment>
+            ) : (
+              <div className="post-body">
+                <h2 className="post-title">{title}</h2>
+                <div className="post-image">
+                  <img
+                  className="img-responsive" 
+                  src={image ? image : require('../../../images/placeholder1920x1080.png')} 
+                  alt={title} />
+                </div>
+                <p className="post-content">{content}</p>
+              </div>
+            )
           }
         </div>
-        <ul className="user-form-errors">
-        { formErrors.map(err => 
-            err.map(item => 
-              <li className="user-form-message user-form-error" key={item}>{item}</li>
-            )
-        ) }
-
-        { isUpdated === true && Object.keys(post).length > 0 && <li className="user-form-message user-form-success">Post updated</li> }
-        </ul>
-        <time className="post-date" dateTime={formatDate}>{formatDate}</time>
-        { isEdit ? (
-          <Fragment>
-            <Form 
-              handleTitleChange={handleTitleChange}
-              handleContentChange={handleContentChange}
-              title={title}
-              content={content}
-              image={image}
-              onDrop={onDrop} 
-              handlePostFormSubmit={handlePostFormSubmit} />
-            <Confirm 
-              showConfirmModal={showConfirmModal}
-              handleModalClose={handleModalClose}
-              handlePostFormSubmit={handlePostFormSubmit} />
-          </Fragment>
-          ) : (
-            <div className="post-body">
-              <h2 className="post-title">{title}</h2>
-              <div className="post-image">
-                <img
-                className="img-responsive" 
-                src={image ? image : require('../../../images/placeholder1920x1080.png')} 
-                alt={title} />
-              </div>
-              <p className="post-content">{content}</p>
-            </div>
-          )
-        }
       </div>
-      <div className="comment-section l-container">
-        <h2 className="section-heading">COMMENT</h2>
-        <div className="comment-list">
-          { comments && comments.reverse().map(comment => 
-            <PostComment 
-            key={comment.id}
-            content={comment.content}
-            date={comment.createdAt} />)}
+      <div className="comment-section">
+        <div className="l-container">
+          <h2 className="section-heading">COMMENT</h2>
+          <div className="comment-list">
+            { comments && comments.reverse().map(comment => 
+              <PostComment 
+              key={comment.id}
+              content={comment.content}
+              date={comment.createdAt} />)}
+          </div>
+          <form 
+          className="flex flex-vertical flex-align-end"
+          onSubmit={handleCommentSubmit}>
+            <textarea 
+            className="comment-form-text" 
+            onChange={(e) => setNewComment(e.target.value)} 
+            value={newComment}
+            placeholder="Write comment" 
+            required />
+            <button className="button comment-button">SUBMIT</button>
+          </form>
         </div>
-        <form 
-        className="flex flex-vertical flex-align-end"
-        onSubmit={handleCommentSubmit}>
-          <textarea 
-          className="comment-form-text" 
-          onChange={(e) => setNewComment(e.target.value)} 
-          value={newComment}
-          placeholder="Write comment" 
-          required />
-          <button className="button comment-button">SUBMIT</button>
-        </form>
       </div>
     </div>
   )

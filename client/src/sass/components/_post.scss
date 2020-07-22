@@ -1,8 +1,11 @@
 .post-section {
   min-width: $min-screen-size;
+}
+
+.post-container {
+  border-bottom: 1px solid $section-border-color;
   margin-bottom: 52px;
   padding-bottom: 88px;
-  border-bottom: 1px solid $section-border-color;
 
   &.is-new-post {
     border:none;
