@@ -19,6 +19,6 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "author": "Sigmund Burgos",
+  "author": "",
   "license": "ISC"
 }
