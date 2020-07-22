@@ -21,7 +21,7 @@ $base-jp-font-reg: 'YuGothic';
 $breakpoint-tablet: 1279px;
 $breakpoint-mobile: 768px;
 $breakpoint-mobile-small: 540px;
-$min-screen-size: 0;
+$min-screen-size: 1150px; //+30px padding
 
 $slider-dot-bg: rgba(#fff, .5);
 $slider-dot-active-bg: #101010;
