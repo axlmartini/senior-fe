@@ -1,0 +1,19 @@
+.header-logo {
+  padding: 35px 0;
+}
+
+.header-nav-link {
+  color: $base-font-color;
+  font-size: 18px;
+  transition: .3s;
+  font-family: $base-font-bold;
+  letter-spacing: .1em;
+
+  &:hover {
+    color: $base-font-color-hover;
+  }
+}
+
+.header-nav {
+  padding-top: 8px;
+}

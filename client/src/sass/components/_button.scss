@@ -1,0 +1,63 @@
+.button {
+  display:block;
+  width: 340px;
+  background: $button-bg;
+  color: $button-text-color;
+  font-family: $base-font-bold;
+  font-size: 20px;
+  margin: 0 auto;
+  padding: 18px 0;
+  letter-spacing: .09em;
+  transition: .3s;
+  border: 2px solid $button-bg;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:hover {
+    background: $button-text-color;
+    color: $button-bg;
+  }
+
+  &.is-disabled {
+    opacity: .7;
+    pointer-events: none;
+  }
+}
+
+.button-link {
+  font-family: $base-font-bold;
+  letter-spacing: .1em;
+  font-size: 20px;
+  transition: .3s;
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  &:hover {
+    color: $base-font-color-hover;
+  }
+}
+
+.button-save {
+  margin-right: 50px;
+}
+
+.button-group {
+  margin-top: 60px;
+  margin-bottom: 25px;
+}
+
+.button-dropzone {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  max-width: 260px;
+  z-index: 5;
+}

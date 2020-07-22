@@ -1,0 +1,49 @@
+.comment-section {
+  min-width: $min-screen-size;
+  padding-bottom: 150px;
+}
+
+.comment-item {
+  background: $comment-bg;
+  padding: 48px 40px;
+  margin-bottom: 50px;
+}
+
+.comment-content {
+  font-family: $base-jp-font-reg;
+  font-size: 18px;
+  font-weight: bold;
+  letter-spacing: .109em;
+  line-height: 2.25;
+  margin-bottom: 22px;
+}
+
+.comment-list {
+  margin-top: 32px;
+}
+
+.comment-date {
+  font-family: $base-font-bold;
+  font-size: 16px;
+  letter-spacing: .1em;
+}
+
+.comment-form-text {
+  width: 100%;
+  border: 1px solid $input-border-color;
+  padding: 42px 40px;
+  letter-spacing: .14em;
+  height: 200px;
+  font-size: 18px;
+  resize: none;
+  margin-bottom: 40px;
+  
+  &:focus {
+    outline: none;
+  }
+}
+
+.comment-button {
+  margin: 0;
+  max-width: 210px;
+}

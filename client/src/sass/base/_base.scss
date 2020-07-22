@@ -1,0 +1,45 @@
+/*
+#styleguide
+åºæ¬ã¹ã¿ã¤ã«
+
+```
+<p>ç¹ã«ä½ãæå®ããªãã¨ãã®ç¶æ</p>
+```
+*/
+body {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: $font-smoothing;
+  -moz-osx-font-smoothing: grayscale;
+  font-smoothing: $font-smoothing;
+  text-rendering: $text-rendering;
+  font-size: $base-font-size;
+  font-family: $base-font-family;
+  color: $base-font-color;
+  background-color: $base-background-color;
+}
+
+ul {
+  list-style: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: $base-font-color;
+  font-family: $base-font-italic;
+  opacity: .5; /* Firefox */
+  letter-spacing: .14em;
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: $base-font-color;
+  font-family: $base-font-italic;
+  opacity: .5;
+  letter-spacing: .14em;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: $base-font-color;
+  font-family: $base-font-italic;
+  opacity: .5; 
+  letter-spacing: .14em;
+}

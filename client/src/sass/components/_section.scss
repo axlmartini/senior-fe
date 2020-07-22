@@ -1,0 +1,28 @@
+.section {
+  padding: 90px 0 150px;
+  min-width: $min-screen-size;
+}
+
+.section-heading {
+  font-size: 50px;
+  font-family: $base-font-bold;
+  letter-spacing: .1em;
+}
+
+.section-title {
+  margin-bottom: 60px;
+}
+
+.section-title a {
+  align-self: center;
+  margin-left: auto;
+  color: $base-font-color;
+  font-family: $base-font-bold;
+  font-size: 20px;
+  letter-spacing: .1em;
+  transition: .3s;
+
+  &:hover {
+    color: $base-font-color-hover;
+  }
+}

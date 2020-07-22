@@ -1,0 +1,26 @@
+//.l-container {
+//
+//  @include max-screen($breakpoint-mobile) {
+//
+//  }
+//}
+
+
+.l-container {
+  max-width: 1120px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @include max-screen($breakpoint-mobile) {
+    padding: 0 20px;
+  }
+}
+
+.l-header,
+.l-footer {
+  min-width: $min-screen-size;
+}
+
+.l-footer {
+  position: relative;
+}

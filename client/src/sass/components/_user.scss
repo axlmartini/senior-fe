@@ -1,0 +1,110 @@
+.user-section {
+  min-width: $min-screen-size;
+  background: $login-section-bg;
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+  padding: 78px 0 152px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .15s linear;
+  z-index: 25;
+  height: 0;
+
+  &.is-active {
+    opacity: 1;
+    height: auto;
+    pointer-events: all;
+  }
+}
+
+.user-form {
+  width: 460px;
+  margin: 0 auto;
+}
+
+.user-header {
+  font-family: $base-font-bold;
+  font-size: 30px;
+  letter-spacing: .09em;
+}
+
+.user-label {
+  display: block;
+  font-size: 18px;
+  letter-spacing: .1em;
+  margin-bottom: 2px;
+}
+
+.user-input {
+  width: 100%;
+  border: 1px solid $input-border-color;
+  height: 60px;
+  padding: 0 18px;
+  font-size: 18px;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.user-button {
+  width: 100%;
+  margin-bottom: 35px;
+}
+
+.user-form-group {
+  margin-bottom: 18px;
+}
+
+.user-action {
+  font-size: 18px;
+  font-family: $base-font-bold;
+  letter-spacing: .1em;
+  text-align: center;
+  padding-left: 10px;
+}
+
+.user-switch-button {
+  margin-left: 7px;
+  letter-spacing: .1em;
+  transition: .3s;
+  cursor: pointer;
+
+  &:hover {
+    color: $base-font-color-hover;
+  }
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+.user-form-errors {
+  padding: 22px 0;
+}
+
+.user-form-message {
+  border: 1px solid transparent;
+  padding: 12px 20px;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.user-form-error {
+  border-color: $form-error-border;
+  background-color: $form-error-bg;
+  color: $form-error-color;
+}
+
+.user-form-success {
+  color: $form-success-color;
+  background-color: $form-success-bg;
+  border-color: $form-success-border;
+}
+
+.user-form-message:not(:last-of-type) {
+  margin-bottom: 15px;
+}

@@ -1,0 +1,31 @@
+.footer-info {
+  background: $footer-info-bg;
+  padding: 78px 0 64px;
+}
+
+.footer-image {
+  margin-bottom: 40px;
+}
+
+.footer-info p {
+  color: $footer-text-color;
+  font-family: $base-jp-font-reg;
+  font-size: 16px;
+  letter-spacing: .02em;
+  font-weight: bold;
+  max-width: 405px;
+  max-width: 410px;
+  line-height: 2;
+}
+
+.footer-copyright {
+  background: $footer-copyright-bg;
+  color: $footer-text-color;
+  text-align: center;
+  padding: 32px 0;
+}
+
+.footer-copyright p {
+  font-size: 16px;
+  letter-spacing: .075em;
+}

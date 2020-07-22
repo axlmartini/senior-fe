@@ -1,0 +1,58 @@
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 25;
+  transition: opacity .15s linear;
+  opacity: 0;
+  pointer-events: none;
+  width: 100%;
+  height: 100%;
+  background: rgba($modal-bg, .5);
+
+  &.is-active {
+    opacity: 1;
+    pointer-events: all;
+  }
+}
+
+.modal-content {
+  width: 500px;
+  background: $base-background-color;
+  margin: 15% auto 0;
+  border-radius: 4px;
+  border: 1px solid rgba($section-border-color,.2);
+  flex-direction: column;
+}
+
+.modal-close {
+  padding: 6px 15px;
+}
+
+.modal-buttons {
+  padding: 15px;
+}
+
+.modal-button {
+  font-size: 12px;
+}
+
+.modal-text {
+  background: $modal-content-bg;
+  padding: 35px 15px;
+  font-size: 18px;
+}
+
+.modal-button {
+  font-size: 16px;
+  width: auto;
+  padding: 6px 9px;
+  border-radius: 4px;
+  margin: 0;
+}
+
+.modal-button:not(:last-of-type) {
+  margin-right: 8px;
+}
