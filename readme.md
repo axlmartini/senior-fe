@@ -1,8 +1,12 @@
 # Senior FE Exam API
 
 ## Installation
-1. Run `npm install`
-2. Run `npm start`
+1. Open terminal, go to project directory
+2. `cd client/`
+3. Run `npm install`
+4. `cd ..`
+5. Run `npm install`
+6. Run `npm run dev`
 
 ## Usage
 API is using Graphql (https://graphql.org).
