@@ -50,7 +50,7 @@ function Slider() {
       }, 1000);
     }
   }, [loading]);
-
+  
   if(errors && errors.length) return <h2>Network Error</h2>
   return (
     <div className="slider">

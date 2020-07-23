@@ -91,14 +91,7 @@ function Header () {
           </nav>
         </div>
       </header>
-      <Login 
-          handleSwitchForm={handleSwitchForm} 
-          showLoginForm={showLoginForm} />
-      <Register 
-          handleSwitchForm={handleSwitchForm} 
-          showRegisterForm={showRegisterForm}
-          handleRegisterClose={handleRegisterClose} />
-      {/* { showLoginForm &&
+      { showLoginForm &&
         <Login 
           handleSwitchForm={handleSwitchForm} 
           showLoginForm={showLoginForm} />
@@ -106,8 +99,9 @@ function Header () {
       { showRegisterForm &&
         <Register 
           handleSwitchForm={handleSwitchForm} 
-          showRegisterForm={showRegisterForm} />
-      } */}
+          showRegisterForm={showRegisterForm}
+          handleRegisterClose={handleRegisterClose} />
+      }
     </div>
   );
 }

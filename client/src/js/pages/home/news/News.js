@@ -46,7 +46,7 @@ function News() {
           <ul className="news-list">
             { 
               posts && posts.map((post, index) => 
-                <div className={`news-list-group flex flex-start animate`} key={`post-group-${index}`}>
+                <div className={`news-list-group flex flex-start`} key={`post-group-${index}`}>
                   {
                     post.map(item => 
                       <NewsItem 

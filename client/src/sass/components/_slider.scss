@@ -117,9 +117,6 @@
   padding-right: 18px;
   transition: .4s;
   transform: translateX(150%);
-  -webkit-animation: fadein .5s;
-  -moz-animation: fadein .5s;
-  animation: fadein .5s;
 
   &.is-active {
     transform: translateX(0);

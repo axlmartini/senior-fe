@@ -5,13 +5,14 @@ import '../sass/styles.scss';
 import { ApolloClient, ApolloLink, InMemoryCache, HttpLink } from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import PrivateRoute from './PrivateRoute';
+import PrivateRoute from './routes/PrivateRoute';
 import Home from './pages/home';
 import SinglePost from './pages/single-post';
 import NewPost from './pages/new-post';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 import ScrollToTop from './utils/ScrollToTop';
+import PageNotFound from './pages/404/PageNotFound';
 
 const httpLink = new HttpLink({
   uri: 'http://localhost:4000/graphql/'
@@ -44,9 +45,9 @@ export default function App() {
           <main className="l-index">
             <Switch>
               <Route path="/" exact component={Home} />
-              <PrivateRoute path="/news/new" exact component={NewPost} />
+              <PrivateRoute path="/news/new" component={NewPost} />
               <PrivateRoute path="/news/:id" component={SinglePost} />
-              <Route path="*" render={() => <div>404</div>} />
+              <Route path="*" render={() => <PageNotFound />} />
             </Switch>
           </main>
           <Footer />

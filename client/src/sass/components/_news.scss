@@ -33,6 +33,28 @@
 .news-list-group {
   flex-wrap: wrap;
   margin: 0 -24.5px 10px;
+  animation: 1s news-list-show linear;
+  -webkit-animation: 1s news-list-show linear;
+}
+
+@-webkit-keyframes news-list-show {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-moz-keyframes news-list-show {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@-o-keyframes news-list-show {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes news-list-show {
+  0%   { opacity: 0; }
+  100% { opacity: 1; }
 }
 
 .news-list-item {

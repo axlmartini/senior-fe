@@ -6,16 +6,80 @@
   left: 0;
   width: 100%;
   padding: 78px 0 152px;
-  opacity: 0;
-  pointer-events: none;
   transition: opacity .15s linear;
   z-index: 25;
-  height: 0;
 
   &.is-active {
-    opacity: 1;
-    height: auto;
-    pointer-events: all;
+    animation: .5s user-modal-show linear;
+    -webkit-animation: .5s user-modal-show linear;
+  }
+}
+
+@-webkit-keyframes user-modal-show {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-20px);
+  }
+
+  50% { 
+    opacity: 1; 
+    transform: translateY(10px);
+  }
+
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@-moz-keyframes user-modal-show {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-20px);
+  }
+
+  50% { 
+    opacity: 1; 
+    transform: translateY(10px);
+  }
+
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@-o-keyframes user-modal-show {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-20px);
+  }
+
+  50% { 
+    opacity: 1; 
+    transform: translateY(10px);
+  }
+
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
+  }
+}
+
+@keyframes user-modal-show {
+  0% { 
+    opacity: 0; 
+    transform: translateY(-20px);
+  }
+
+  50% { 
+    opacity: 1; 
+    transform: translateY(10px);
+  }
+
+  100% { 
+    opacity: 1; 
+    transform: translateY(0);
   }
 }
 

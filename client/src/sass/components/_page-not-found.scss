@@ -1,0 +1,10 @@
+.page-not-found {
+  height: 100vh;
+  background: $page-404-bg;
+}
+
+.page-not-found-header {
+  font-family: $base-font-bold;
+  color: $page-404-color;
+  font-size: 120px;
+}
