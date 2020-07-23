@@ -8,3 +8,33 @@
   color: $page-404-color;
   font-size: 120px;
 }
+
+.page-not-found-header span {
+  animation: 2s drop infinite;
+  -webkit-animation: 2s drop infinite;
+  animation-delay: .5s;
+  -webkit-animation-delay: .5s;
+  display: inline-block;
+}
+
+.page-not-found-header span:nth-of-type(2) {
+  animation-delay: .8s;
+  -webkit-animation-delay: .8s;
+}
+
+.page-not-found-header span:nth-of-type(3) {
+  animation-delay: 1s;
+  -webkit-animation-delay: 1s;
+}
+
+@keyframes drop {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(20px); }
+  100% { transform: translateY(0); }
+}
+
+@-webkit-keyframes drop {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(20px); }
+  100% { transform: translateY(0); }
+}
