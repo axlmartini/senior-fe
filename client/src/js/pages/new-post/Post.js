@@ -6,6 +6,7 @@ import { addPost } from '../../redux/modules/post';
 import Form from '../common/Form';
 import Confirm from '../modals/Confirm';
 import * as moment from 'moment';
+import '../../../sass/components/Post.scss';
 
 function Post() {
   const [ title, setTitle ] = useState('');
@@ -21,7 +22,7 @@ function Post() {
   const dispatch = useDispatch();
   const [ formErrors, setFormErrors ] = useState([]);
   const [ showConfirmModal, setShowConfirmModal ] = useState(false);
-  
+
   function validate() {
     let titleErrors = [];
 
@@ -91,11 +92,11 @@ function Post() {
         <div className="l-container post-container is-new-post">
           <div className="flex flex-end button-group">
             <button className="button-link button-save" onClick={handlePostFormSubmit}>Save Post</button>
-            <button className="button-link" onClick={handleEditCancel}>Cancel</button> 
+            <button className="button-link" onClick={handleEditCancel}>Cancel</button>
           </div>
           <ul className="user-form-errors">
-          { formErrors.map(err => 
-              err.map(item => 
+          { formErrors.map(err =>
+              err.map(item =>
                 <li className="user-form-message user-form-error" key={item}>{item}</li>
               )
           ) }
@@ -103,15 +104,15 @@ function Post() {
           { post && Object.keys(post).length > 0 && <li className="user-form-message user-form-success">Post added</li> }
           </ul>
           <time className="post-date" dateTime={formatDate}>{formatDate}</time>
-          <Form 
+          <Form
             handleTitleChange={handleTitleChange}
             handleContentChange={handleContentChange}
             title={title}
             content={content}
             image={image}
-            onDrop={onDrop} 
+            onDrop={onDrop}
             handlePostFormSubmit={handlePostFormSubmit} />
-          <Confirm 
+          <Confirm
             showConfirmModal={showConfirmModal}
             handleModalClose={handleModalClose}
             handlePostFormSubmit={handlePostFormSubmit} />

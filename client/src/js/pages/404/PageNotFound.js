@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import '../../../sass/components/Page-not-found.scss';
 
 function PageNotFound() {
   useEffect(() => {

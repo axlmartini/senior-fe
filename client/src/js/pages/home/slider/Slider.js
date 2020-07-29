@@ -3,6 +3,7 @@ import SliderItem from './SliderItem';
 import SliderDot from './SliderDot';
 import { useSelector, useDispatch } from 'react-redux';
 import { getSliderPosts } from '../../../redux/modules/post';
+import '../../../../sass/components/Slider.scss';
 
 function Slider() {
   const [ sliderIndex, setSliderIndex ] = useState(0);
@@ -50,16 +51,16 @@ function Slider() {
       }, 1000);
     }
   }, [loading]);
-  
+
   if(errors && errors.length) return <h2>Network Error</h2>
   return (
     <div className="slider">
       { showSlider ?
         <React.Fragment>
           <div className="slider-list" style={sliderListStyle}>
-            {sliderPosts.map((item, index) => 
-              <SliderItem 
-              src={item.image} 
+            {sliderPosts.map((item, index) =>
+              <SliderItem
+              src={item.image}
               title={item.title}
               date={item.createdAt}
               key={`slider-item-${index}`}
@@ -68,30 +69,30 @@ function Slider() {
               showSliderText={showSliderText} />
             )}
           </div>
-          <button 
+          <button
           className={buttonLeftClass}
           onClick={() => handleArrowClick(-1)}>
             <img
-            src={require('../../../../images/slider-arrow-left.png')} 
+            src={require('../../../../images/slider-arrow-left.png')}
             alt="Slider arrow left" />
           </button>
-          <button 
+          <button
           className={buttonRightClass}
           onClick={() => handleArrowClick(1)}>
             <img
-            src={require('../../../../images/slider-arrow-right.png')} 
+            src={require('../../../../images/slider-arrow-right.png')}
             alt="Slider arrow right" />
           </button>
           <ul className="slider-dots">
           {sliderPosts.map((item, index) =>
-            <SliderDot 
+            <SliderDot
             key={`slider-dot-${index}`}
             active={sliderIndex}
-            index={index} 
+            index={index}
             handleClick={handleDotsClick} />
           )}
           </ul>
-        </React.Fragment> : 
+        </React.Fragment> :
         <div className="flex flex-align-center flex-center" style={{height: '500px'}}>
           <img src={require('../../../../images/loading.gif')} alt="loading" />
         </div>

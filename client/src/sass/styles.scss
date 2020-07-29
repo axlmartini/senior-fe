@@ -10,24 +10,9 @@
 @import 'lib/media-queries';
 @import 'lib/clearfix';
 @import 'lib/flex';
+@import 'lib/img';
+@import 'lib/button';
 
 @import 'layout/grid';
 @import 'layout/layout';
-
-//components
-@import 'components/header';
-@import 'components/img';
-@import 'components/slider';
-@import 'components/section';
-@import 'components/news';
-@import 'components/button';
-@import 'components/footer';
-@import 'components/back-to-top';
-@import 'components/user';
-@import 'components/body';
-@import 'components/breadcrumbs';
-@import 'components/single';
-@import 'components/post';
-@import 'components/comment';
-@import 'components/modal';
-@import 'components/page-not-found';
+@import 'layout/section';

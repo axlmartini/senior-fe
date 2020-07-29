@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAuth } from '../../redux/modules/auth';
+import '../../../sass/components/Modal-form.scss';
 
 function Login(props) {
   const [ email, setEmail ] = useState('');
@@ -40,7 +41,7 @@ function Login(props) {
   function handleFormSubmit(e) {
     e.preventDefault();
     let isValid = validate();
-    
+
     if(isValid) {
       dispatch(getAuth({ email: email, password: password }));
     }
@@ -55,48 +56,48 @@ function Login(props) {
 
   if(error && error.length) return <h2>Error Login</h2>;
   return (
-    <section className={`user-section ${props.showLoginForm ? 'is-active' : ''}`}>
-      <form className="user-form" onSubmit={handleFormSubmit} noValidate>
-        <h2 className="user-header">LOGIN</h2>
-        <ul className="user-form-errors">
-          { formErrors.map(err => 
-              err.map(item => 
-                <li className="user-form-message user-form-error" key={item}>{item}</li>
+    <div className={`modal-form ${props.showLoginForm ? 'is-active' : ''}`}>
+      <form className="modal-form-content" onSubmit={handleFormSubmit} noValidate>
+        <h2 className="modal-form-header">LOGIN</h2>
+        <ul className="modal-form-errors">
+          { formErrors.map(err =>
+              err.map(item =>
+                <li className="modal-form-message modal-form-error" key={item}>{item}</li>
               )
           ) }
-          { isAuthenticated === true && 
-            <li className="user-form-message user-form-success">Login Success...Redirecting...</li>
+          { isAuthenticated === true &&
+            <li className="modal-form-message modal-form-success">Login Success...Redirecting...</li>
           }
         </ul>
-        <div className="user-form-group">
-          <label className="user-label" htmlFor="email">Email</label>
-          <input className="user-input" 
-          id="email" 
-          name="email" 
-          type="email" 
+        <div className="modal-form-group">
+          <label className="modal-form-label" htmlFor="email">Email</label>
+          <input className="modal-form-input"
+          id="email"
+          name="email"
+          type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)} />
         </div>
-        <div className="user-form-group">
-          <label className="user-label" htmlFor="password">Password</label>
-          <input className="user-input" 
-          id="password" 
-          name="password" 
+        <div className="modal-form-group">
+          <label className="modal-form-label" htmlFor="password">Password</label>
+          <input className="modal-form-input"
+          id="password"
+          name="password"
           value={password}
-          type="password" 
+          type="password"
           onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <button 
-          className={`button user-button ${isAuthenticated ? 'is-disabled' : ''}`}>
+        <button
+          className={`button modal-form-button ${isAuthenticated ? 'is-disabled' : ''}`}>
           LOGIN</button>
       </form>
-      <p className="user-action">
-        No account yet? 
-        <button 
-          className="user-switch-button"
+      <p className="modal-form-action">
+        No account yet?
+        <button
+          className="modal-form-link"
           onClick={() => props.handleSwitchForm('register')} >REGISTER HERE</button>
       </p>
-    </section>
+    </div>
   )
 }
 

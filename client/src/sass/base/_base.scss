@@ -18,6 +18,11 @@ body {
   color: $base-font-color;
   background-color: $base-background-color;
   min-width: $min-screen-size;
+
+  &.is-scroll-disabled {
+    height: 100vh;
+    overflow-y: hidden;
+  }
 }
 
 ul {
@@ -41,6 +46,6 @@ ul {
 ::-ms-input-placeholder { /* Microsoft Edge */
   color: $base-font-color;
   font-family: $base-font-italic;
-  opacity: .5; 
+  opacity: .5;
   letter-spacing: .14em;
 }

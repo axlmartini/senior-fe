@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import '../../../sass/components/Breadcrumbs.scss';
 
 function Breadcrumbs(props) {
   return(

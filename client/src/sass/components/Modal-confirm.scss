@@ -1,4 +1,6 @@
-.modal {
+@import '../setting';
+
+.modal-confirm {
   position: fixed;
   top: 0;
   right: 0;
@@ -18,7 +20,7 @@
   }
 }
 
-.modal-content {
+.modal-confirm-content {
   width: 500px;
   background: $base-background-color;
   margin: 15% auto 0;
@@ -27,25 +29,25 @@
   flex-direction: column;
 }
 
-.modal-close {
+.modal-confirm-close {
   padding: 6px 15px;
 }
 
-.modal-buttons {
+.modal-confirm-buttons {
   padding: 15px;
 }
 
-.modal-button {
+.modal-confirm-button {
   font-size: 12px;
 }
 
-.modal-text {
+.modal-confirm-text {
   background: $modal-content-bg;
   padding: 35px 15px;
   font-size: 18px;
 }
 
-.modal-button {
+.modal-confirm-button {
   font-size: 16px;
   width: auto;
   padding: 6px 9px;
@@ -53,6 +55,6 @@
   margin: 0;
 }
 
-.modal-button:not(:last-of-type) {
+.modal-confirm-button:not(:last-of-type) {
   margin-right: 8px;
 }

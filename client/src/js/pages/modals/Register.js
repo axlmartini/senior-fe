@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRegister, getAuth } from '../../redux/modules/auth';
+import '../../../sass/components/Modal-form.scss';
 
 function Register(props) {
   const [ email, setEmail ] = useState('');
@@ -51,7 +52,7 @@ function Register(props) {
   function handleFormSubmit(e) {
     e.preventDefault();
     let isValid = validate();
-    
+
     if(isValid) {
       dispatch(getRegister({ email: email, password: password }));
     }
@@ -67,62 +68,62 @@ function Register(props) {
   }, [isRegistered])
 
   return(
-    <section className={`user-section ${props.showRegisterForm ? 'is-active' : ''}`}>
-      <form className="user-form" onSubmit={handleFormSubmit} noValidate> 
-        <h2 className="user-header">REGISTER</h2>
-        <ul className="user-form-errors">
-          { formErrors.map(err => 
-              err.map(item => 
-                <li className="user-form-message user-form-error" key={item}>{item}</li>
+    <section className={`modal-form ${props.showRegisterForm ? 'is-active' : ''}`}>
+      <form className="modal-form-content" onSubmit={handleFormSubmit} noValidate>
+        <h2 className="modal-form-header">REGISTER</h2>
+        <ul className="modal-form-errors">
+          { formErrors.map(err =>
+              err.map(item =>
+                <li className="modal-form-message modal-form-error" key={item}>{item}</li>
               )
           ) }
 
           { error && error.length > 0 &&
-            <li className="user-form-message user-form-error">Email already taken</li>
+            <li className="modal-form-message modal-form-error">Email already taken</li>
           }
 
           { isRegistered === true &&
-            <li className="user-form-message user-form-success">Register Success...Redirecting...</li>
+            <li className="modal-form-message modal-form-success">Register Success...Redirecting...</li>
           }
         </ul>
-        <div className="user-form-group">
-          <label className="user-label" htmlFor="email">Email</label>
-          <input className="user-input" 
-          id="register-email" 
-          name="register-email" 
-          type="email" 
+        <div className="modal-form-group">
+          <label className="modal-form-label" htmlFor="email">Email</label>
+          <input className="modal-form-input"
+          id="register-email"
+          name="register-email"
+          type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)} />
         </div>
-        <div className="user-form-group">
-          <label className="user-label" htmlFor="password">Password</label>
-          <input className="user-input" 
-          id="js-register-password" 
-          name="register-password" 
+        <div className="modal-form-group">
+          <label className="modal-form-label" htmlFor="password">Password</label>
+          <input className="modal-form-input"
+          id="js-register-password"
+          name="register-password"
           value={password}
-          type="password" 
+          type="password"
           onChange={(e) => setPassword(e.target.value)} />
         </div>
-        <div className="user-form-group">
-          <label className="user-label" htmlFor="confirm-password">Confirm Password</label>
-          <input className="user-input" 
-          id="js-confirm-password" 
-          name="confirm-password" 
+        <div className="modal-form-group">
+          <label className="modal-form-label" htmlFor="confirm-password">Confirm Password</label>
+          <input className="modal-form-input"
+          id="js-confirm-password"
+          name="confirm-password"
           value={confirmPassword}
-          type="password" 
+          type="password"
           onChange={(e) => setConfirmPassword(e.target.value)} />
         </div>
-        <button className={`button user-button ${isRegistered === true ? 'is-disabled' : ''}`}>
+        <button className={`button modal-form-button ${isRegistered === true ? 'is-disabled' : ''}`}>
           REGISTER</button>
       </form>
-      <p className="user-action">
-        Already have an account? 
-        <button 
-          className="user-switch-button"
+      <p className="modal-form-action">
+        Already have an account?
+        <button
+          className="modal-form-link"
           onClick={() => props.handleSwitchForm('login')} >LOGIN HERE</button>
       </p>
     </section>
-  ) 
+  )
 }
 
 export default Register;

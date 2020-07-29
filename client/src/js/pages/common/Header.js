@@ -4,6 +4,7 @@ import { removeAuth } from '../../redux/modules/auth';
 import Login from '../modals/Login';
 import Register from '../modals/Register';
 import { Link } from 'react-router-dom';
+import '../../../sass/components/Header.scss';
 
 function Header () {
   const { isAuthenticated } = useSelector(state => state.auth);
@@ -17,7 +18,7 @@ function Header () {
       setShowLoginForm(!showLoginForm);
     } else {
       setShowRegisterForm(false);
-    }    
+    }
   }
 
   function handleLogout(e) {
@@ -32,7 +33,7 @@ function Header () {
       setTimeout(() => {
         setShowRegisterForm(true);
       }, 500);
-      
+
     } else {
       setShowRegisterForm(false);
       setTimeout(() => {
@@ -47,9 +48,9 @@ function Header () {
 
   useEffect(() => {
     let bodyElement = document.body.classList;
-    showLoginForm || showRegisterForm ? 
-    bodyElement.add('body-scroll-disabled') : 
-    bodyElement.remove('body-scroll-disabled');
+    showLoginForm || showRegisterForm ?
+    bodyElement.add('is-scroll-disabled') :
+    bodyElement.remove('is-scroll-disabled');
   }, [showLoginForm, showRegisterForm]);
 
   useEffect(() =>{
@@ -66,23 +67,23 @@ function Header () {
         <div className="l-container flex flex-space-around flex-align-center">
           <h1 className="header-logo">
             <Link to="/">
-              <img 
-              className="img-responsive" 
-              src={require('../../../images/site-logo.png')} 
-              alt="site logo" /> 
+              <img
+              className="img-responsive"
+              src={require('../../../images/site-logo.png')}
+              alt="site logo" />
             </Link>
           </h1>
           <nav className="header-nav">
             <ul>
               <li>
                 { !isAuthenticated &&
-                  <a className="header-nav-link" 
+                  <a className="header-nav-link"
                   href="/"
                   onClick={handleFormDisplay}>{showLoginForm || showRegisterForm ? 'CLOSE' : 'LOGIN'}</a>
                 }
 
                 { isAuthenticated &&
-                  <a className="header-nav-link" 
+                  <a className="header-nav-link"
                   href="/"
                   onClick={handleLogout}>LOGOUT</a>
                 }
@@ -92,13 +93,13 @@ function Header () {
         </div>
       </header>
       { showLoginForm &&
-        <Login 
-          handleSwitchForm={handleSwitchForm} 
+        <Login
+          handleSwitchForm={handleSwitchForm}
           showLoginForm={showLoginForm} />
       }
       { showRegisterForm &&
-        <Register 
-          handleSwitchForm={handleSwitchForm} 
+        <Register
+          handleSwitchForm={handleSwitchForm}
           showRegisterForm={showRegisterForm}
           handleRegisterClose={handleRegisterClose} />
       }

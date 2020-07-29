@@ -3,6 +3,7 @@ import NewsItem from './NewsItem';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { getPosts } from '../../../redux/modules/post';
+import '../../../../sass/components/News.scss';
 
 function News() {
   const limit = 6;
@@ -29,7 +30,7 @@ function News() {
     if(posts) {
       setIndex(prevIndex => prevIndex + limit);
     }
-    
+
   }, [posts]);
 
   if(errors && errors.length) return <h2>Network Error</h2>
@@ -38,22 +39,22 @@ function News() {
       <div className="l-container">
         <div className="section-title flex">
           <h2 className="section-heading">NEWS</h2>
-          { isAuthenticated && 
+          { isAuthenticated &&
             <Link to="/news/new">Create New Post</Link> }
         </div>
 
         <div className="news-content">
           <ul className="news-list">
-            { 
-              posts && posts.map((post, index) => 
+            {
+              posts && posts.map((post, index) =>
                 <div className={`news-list-group flex flex-start`} key={`post-group-${index}`}>
                   {
-                    post.map(item => 
-                      <NewsItem 
-                      key={`news-item-${item.id}`} 
+                    post.map(item =>
+                      <NewsItem
+                      key={`news-item-${item.id}`}
                       id={item.id}
                       title={item.title}
-                      date={item.createdAt}   
+                      date={item.createdAt}
                       image={item.image} />
                     )
                   }
@@ -62,8 +63,8 @@ function News() {
             }
           </ul>
         </div>
-        { posts && 
-          <button 
+        { posts &&
+          <button
           className={`button ${isLoading || isLoadLimit ? 'is-disabled' : ''}`}
           onClick={handleLoadMore}> {isLoading ? 'LOADING...' : (isLoadLimit ? 'NO MORE POSTS' : 'LOAD MORE') }</button>
         }

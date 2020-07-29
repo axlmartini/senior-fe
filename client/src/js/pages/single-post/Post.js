@@ -8,6 +8,8 @@ import { getPost, updatePost, addPostComment } from '../../redux/modules/post';
 import Confirm from '../modals/Confirm';
 import usePrevious from '../../hooks/usePrevious';
 import * as moment from 'moment';
+import '../../../sass/components/Post.scss';
+import '../../../sass/components/Comment.scss';
 
 function Post () {
   const [ title, setTitle ] = useState('');
@@ -77,9 +79,9 @@ function Post () {
   }
 
   function handleCommentSubmit(e) {
-    e.preventDefault();    
+    e.preventDefault();
     dispatch(addPostComment({
-        postId: parseInt(id), 
+        postId: parseInt(id),
         content: newComment
       })
     );
@@ -125,13 +127,13 @@ function Post () {
               <button className="button-link" onClick={() => setIsEdit(!isEdit)}>Edit Post</button> :
               <div>
                 <button className="button-link button-save" onClick={handlePostFormSubmit}>Save Post</button>
-                <button className="button-link" onClick={handleEditCancel}>Cancel</button> 
+                <button className="button-link" onClick={handleEditCancel}>Cancel</button>
               </div>
             }
           </div>
           <ul className="user-form-errors">
-          { formErrors.map(err => 
-              err.map(item => 
+          { formErrors.map(err =>
+              err.map(item =>
                 <li className="user-form-message user-form-error" key={item}>{item}</li>
               )
           ) }
@@ -141,15 +143,15 @@ function Post () {
           <time className="post-date" dateTime={formatDate}>{formatDate}</time>
           { isEdit ? (
             <Fragment>
-              <Form 
+              <Form
                 handleTitleChange={handleTitleChange}
                 handleContentChange={handleContentChange}
                 title={title}
                 content={content}
                 image={image}
-                onDrop={onDrop} 
+                onDrop={onDrop}
                 handlePostFormSubmit={handlePostFormSubmit} />
-              <Confirm 
+              <Confirm
                 showConfirmModal={showConfirmModal}
                 handleModalClose={handleModalClose}
                 handlePostFormSubmit={handlePostFormSubmit} />
@@ -159,8 +161,8 @@ function Post () {
                 <h2 className="post-title">{title}</h2>
                 <div className="post-image">
                   <img
-                  className="img-responsive" 
-                  src={image ? image : require('../../../images/placeholder1920x1080.png')} 
+                  className="img-responsive"
+                  src={image ? image : require('../../../images/placeholder1920x1080.png')}
                   alt={title} />
                 </div>
                 <p className="post-content">{content}</p>
@@ -173,20 +175,20 @@ function Post () {
         <div className="l-container">
           <h2 className="section-heading">COMMENT</h2>
           <div className="comment-list">
-            { comments && comments.reverse().map(comment => 
-              <PostComment 
+            { comments && comments.reverse().map(comment =>
+              <PostComment
               key={comment.id}
               content={comment.content}
               date={comment.createdAt} />)}
           </div>
-          <form 
+          <form
           className="flex flex-vertical flex-align-end"
           onSubmit={handleCommentSubmit}>
-            <textarea 
-            className="comment-form-text" 
-            onChange={(e) => setNewComment(e.target.value)} 
+            <textarea
+            className="comment-form-text"
+            onChange={(e) => setNewComment(e.target.value)}
             value={newComment}
-            placeholder="Write comment" 
+            placeholder="Write comment"
             required />
             <button className="button comment-button">SUBMIT</button>
           </form>

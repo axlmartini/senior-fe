@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from './pages/common/Header';
 import Footer from './pages/common/Footer';
-import '../sass/styles.scss';
 import { ApolloClient, ApolloLink, InMemoryCache, HttpLink } from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
