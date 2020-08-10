@@ -45,7 +45,7 @@ export default function App() {
             <Switch>
               <Route path="/" exact component={Home} />
               <PrivateRoute path="/news/new" component={NewPost} />
-              <PrivateRoute path="/news/:id" component={SinglePost} />
+              <Route path="/news/:id" component={SinglePost} />
               <Route path="*" render={() => <PageNotFound />} />
             </Switch>
           </main>

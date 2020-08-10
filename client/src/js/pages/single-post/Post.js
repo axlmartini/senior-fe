@@ -12,6 +12,7 @@ import '../../../sass/components/Post.scss';
 import '../../../sass/components/Comment.scss';
 
 function Post () {
+  const { isAuthenticated } = useSelector(state => state.auth);
   const [ title, setTitle ] = useState('');
   const [ content, setContent ] = useState('');
   const [ date, setDate ] = useState('');
@@ -123,13 +124,13 @@ function Post () {
       <div className="post-section">
         <div className="l-container post-container">
           <div className="flex flex-end button-group">
-            { !isEdit ?
-              <button className="button-link" onClick={() => setIsEdit(!isEdit)}>Edit Post</button> :
+            { isAuthenticated === true && (!isEdit ?
+              <button className="button-link" onClick={() => setIsEdit(true)}>Edit Post</button> :
               <div>
                 <button className="button-link button-save" onClick={handlePostFormSubmit}>Save Post</button>
                 <button className="button-link" onClick={handleEditCancel}>Cancel</button>
               </div>
-            }
+            )}
           </div>
           <ul className="user-form-errors">
           { formErrors.map(err =>
