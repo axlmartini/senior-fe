@@ -1,9 +1,9 @@
 import axios from "axios";
 import { GET_POSTS_QUERY, GET_POST_QUERY } from '../../graphql/queries';
-import { 
-  UPDATE_POST_QUERY, 
+import {
+  UPDATE_POST_QUERY,
   ADD_COMMENT_QUERY,
-  ADD_POST_QUERY 
+  ADD_POST_QUERY
 } from '../../graphql/mutations';
 //action types
 export const SET_POSTS = "app/posts/load";
@@ -110,7 +110,7 @@ export function getPosts({ offset, limit }) {
       let posts = data.data.posts;
       if(posts.length > 0)
         dispatch(setPosts(posts));
-      else 
+      else
         dispatch(setLoadLimit(true))
     }
   }
@@ -158,7 +158,7 @@ export function getPost({ id }) {
         'Authorization': localStorage.getItem('authKey') || ''
       }
     });
-    
+
     let { data, error } = response;
     if(error) {
       dispatch(setError(error));
@@ -215,7 +215,7 @@ export function addPost({ title, content, image }) {
         'Authorization': localStorage.getItem('authKey') || ''
       }
     });
-    
+
     let { data, error } = response;
     if(error) {
       dispatch(setError(error));
@@ -242,7 +242,7 @@ export function addPostComment({ postId, content }) {
         'Authorization': localStorage.getItem('authKey') || ''
       }
     });
-    
+
     let { data, error } = response;
     if(error) {
       dispatch(setError(error));

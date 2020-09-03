@@ -16,8 +16,9 @@ function Post() {
   let formatDate = moment().format('YYYY.MM.DD');
   const history = useHistory();
   const onDrop = useCallback((acceptedFiles) => {
-    let preview = URL.createObjectURL(acceptedFiles[0]);
-    setImage(preview)
+    let reader = new FileReader();
+    reader.readAsDataURL(acceptedFiles[0]);
+    reader.onloadend = () => setImage(reader.result);
   }, []);
   const dispatch = useDispatch();
   const [ formErrors, setFormErrors ] = useState([]);

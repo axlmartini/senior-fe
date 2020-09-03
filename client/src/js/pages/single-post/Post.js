@@ -24,8 +24,9 @@ function Post () {
   let formatDate = moment(new Date(date)).format('YYYY.MM.DD');
   const history = useHistory();
   const onDrop = useCallback((acceptedFiles) => {
-    let preview = URL.createObjectURL(acceptedFiles[0]);
-    setImage(preview)
+    let reader = new FileReader();
+    reader.readAsDataURL(acceptedFiles[0]);
+    reader.onloadend = () => setImage(reader.result);
   }, []);
   const dispatch = useDispatch();
   const { post, errors } = useSelector(state => state.post);
@@ -61,7 +62,7 @@ function Post () {
           id: parseInt(id),
           title: title,
           content: content,
-          image: image.preview
+          image: image
         }
       ));
       setTimeout(() => {
@@ -162,7 +163,7 @@ function Post () {
                 <h2 className="post-title">{title}</h2>
                 <div className="post-image">
                   <img
-                  className="img-responsive"
+                  className="img-responsive img-full"
                   src={image ? image : require('../../../images/placeholder1920x1080.png')}
                   alt={title} />
                 </div>
